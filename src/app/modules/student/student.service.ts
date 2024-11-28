@@ -29,9 +29,21 @@ const deleteStudentFromDBs = async (id: string) => {
   const result = await StudentModel.updateOne({ id: id }, { isDeleted: true });
   return result;
 };
+const updateStudentData = async (id: string) => {
+  const result = await StudentModel.updateOne(
+    { id: id },
+    {
+      $set: {
+        updateDate: new Date().toISOString().replace('Z', '+00:00'),
+      },
+    },
+  );
+  return result;
+};
 export const StudentServices = {
   createStudentIntoDB,
   getAllStudentFromDB,
   getSingleStudentFromDB,
   deleteStudentFromDBs,
+  updateStudentData,
 };

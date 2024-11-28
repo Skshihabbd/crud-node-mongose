@@ -117,12 +117,14 @@ const studentSchema = new Schema<TStudent, TStudentModel>(
       default: 'active',
     },
     isDeleted: { type: Boolean, default: false },
-    Date: { type: Date, default: Date.now },
+    addedDate: { type: Date, default: Date.now },
+    updateDate: { type: Date, default: Date.now },
   },
   {
     toJSON: {
       virtuals: true,
     },
+    versionKey: false,
   },
 );
 

@@ -44,7 +44,8 @@ export type TStudent = {
   profileImg?: string;
   isActive: 'active' | 'block';
   isDeleted: boolean;
-  Date: Date;
+  addedDate: Date;
+  updateDate: Date;
 };
 //for creating custom instance
 // export type TStudentMethods = {
